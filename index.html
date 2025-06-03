@@ -15,6 +15,7 @@
     <div class="app-container">
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
+                <!-- Logo modificado con fondo blanco y texto azul -->
                 <img src="img/logosimmit.png" alt="Logo Summit">
                 <h2>Calculadora Summit</h2>
             </div>
@@ -35,14 +36,14 @@
 
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="busqueda" class="search-box" placeholder="Buscar por nombre o código...">
+                <input type="text" id="busqueda" class="search-box" placeholder="Buscar por nombre o código..." oninput="filtrarProductos()">
                 <div id="sugerencias" class="suggestions-box"></div>
             </div>
 
             <div class="selected-products-container">
                 <div class="selected-header">
                     <h2>Productos seleccionados:</h2>
-                    <button class="clear-button" id="limpiarSeleccion">
+                    <button class="clear-button" onclick="limpiarSeleccionados()">
                         <i class="fas fa-trash-alt"></i> Limpiar todo
                     </button>
                 </div>
@@ -73,10 +74,10 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button class="btn btn-primary" id="calcularBtn">
+                    <button class="btn btn-primary" onclick="calcular()">
                         <i class="fas fa-calculator"></i> Calcular
                     </button>
-                    <button class="btn btn-secondary" id="resetearBtn">
+                    <button class="btn btn-secondary" onclick="resetearCalculadora()">
                         <i class="fas fa-redo"></i> Resetear
                     </button>
                 </div>
@@ -121,6 +122,7 @@
         </div>
     </div>
 
+    <script src="productos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
