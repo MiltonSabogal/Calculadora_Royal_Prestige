@@ -7,6 +7,9 @@ document.getElementById('mobileMenuBtn').addEventListener('click', function() {
     this.querySelector('i').classList.toggle('fa-times');
 });
 
+// Event listener para búsqueda (agregado)
+document.getElementById("busqueda").addEventListener("input", filtrarProductos);
+
 function filtrarProductos() {
     const query = document.getElementById("busqueda").value.toLowerCase();
     const contenedor = document.getElementById("sugerencias");
@@ -127,19 +130,24 @@ function calcular() {
     let precioSinIVA = precioTotal / 1.19;
     let iva = precioTotal - precioSinIVA;
     let deposito = parseFloat(document.getElementById("deposito").value || 0);
-    let saldoFinanciar = precioTotal - deposito;
+    let saldoFinanciar = Math.max(0, precioTotal - deposito);
     let tasaMV = parseFloat(document.getElementById("tasa_mv").value || 1.90) / 100;
     let cuotas = parseInt(document.getElementById("cuotas").value || 18);
 
-    let pagoMensual;
+    let pagoMensual = 0;
 
-    if (cuotas <= 6) {
-        pagoMensual = saldoFinanciar / cuotas;
-    } else {
-        let i = tasaMV;
-        pagoMensual = saldoFinanciar * i * Math.pow(1 + i, cuotas) / (Math.pow(1 + i, cuotas) - 1);
+    // Cálculo corregido de cuotas
+    if (cuotas > 0) {
+        if (cuotas <= 6) {
+            pagoMensual = saldoFinanciar / cuotas;
+        } else {
+            const i = tasaMV;
+            // Fórmula corregida para cálculo financiero
+            pagoMensual = saldoFinanciar * (i * Math.pow(1 + i, cuotas)) / (Math.pow(1 + i, cuotas) - 1);
+        }
     }
 
+    // Actualizar UI
     document.getElementById("precio-sin-iva").textContent = `$${precioSinIVA.toLocaleString('es-CO')}`;
     document.getElementById("iva").textContent = `$${iva.toLocaleString('es-CO')}`;
     document.getElementById("precio-total").textContent = `$${precioTotal.toLocaleString('es-CO')}`;
