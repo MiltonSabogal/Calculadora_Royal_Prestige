@@ -16,7 +16,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <!-- Logo modificado con fondo blanco y texto azul -->
-                <img src="img/logosimmit.png" alt="Logo Summit">
+                <img src="img/logosimmit 1.png" alt="Logo Summit">
                 <h2>Calculadora Summit</h2>
             </div>
             <ul class="sidebar-menu">
@@ -36,7 +36,7 @@
 
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="busqueda" class="search-box" placeholder="Buscar por nombre o código..." oninput="filtrarProductos()">
+                <input type="text" id="busqueda" class="search-box" placeholder="Buscar por nombre o código...">
                 <div id="sugerencias" class="suggestions-box"></div>
             </div>
 
@@ -93,36 +93,35 @@
                 <div class="result-grid">
                     <div class="result-card">
                         <div class="result-title">Precio sin IVA</div>
-                        <div class="result-value" id="precio-sin-iva">$0</div>
+                        <div class="result-value" id="precio-sin-iva">$0 COP</div>
                     </div>
                     <div class="result-card">
                         <div class="result-title">IVA (19%)</div>
-                        <div class="result-value" id="iva">$0</div>
+                        <div class="result-value" id="iva">$0 COP</div>
                     </div>
                     <div class="result-card">
                         <div class="result-title">Precio total</div>
-                        <div class="result-value" id="precio-total">$0</div>
+                        <div class="result-value" id="precio-total">$0 COP</div>
                     </div>
                     <div class="result-card">
                         <div class="result-title">Saldo a financiar</div>
-                        <div class="result-value" id="saldo-financiar">$0</div>
+                        <div class="result-value" id="saldo-financiar">$0 COP</div>
                     </div>
                     <div class="result-card">
                         <div class="result-title">Pago mensual</div>
-                        <div class="result-value" id="pago-mensual">$0</div>
+                        <div class="result-value" id="pago-mensual">$0 COP</div>
                     </div>
                 </div>
                 <div class="chart-container">
                     <div class="chart-title">Distribución de pagos</div>
-                    <div class="chart" id="payment-chart">
-                        <!-- Las barras se generarán dinámicamente -->
+                    <div class="chart-wrapper">
+                        <div class="chart" id="payment-chart"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="productos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
