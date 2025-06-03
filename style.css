@@ -292,7 +292,7 @@ body {
     align-items: center;
 }
 
-.quantity-control {
+quantity-control {
     display: flex;
     align-items: center;
     margin-right: 15px;
