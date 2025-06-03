@@ -148,11 +148,11 @@ function calcular() {
     }
 
     // Actualizar UI
-    document.getElementById("precio-sin-iva").textContent = `$${precioSinIVA.toLocaleString('es-CO')}`;
-    document.getElementById("iva").textContent = `$${iva.toLocaleString('es-CO')}`;
-    document.getElementById("precio-total").textContent = `$${precioTotal.toLocaleString('es-CO')}`;
-    document.getElementById("saldo-financiar").textContent = `$${saldoFinanciar.toLocaleString('es-CO')}`;
-    document.getElementById("pago-mensual").textContent = `$${pagoMensual.toLocaleString('es-CO')}`;
+    document.getElementById("precio-sin-iva").textContent = `$${Math.round(precioSinIVA).toLocaleString('es-CO')}`;
+    document.getElementById("iva").textContent = `$${Math.round(iva).toLocaleString('es-CO')}`;
+    document.getElementById("precio-total").textContent = `$${Math.round(precioTotal).toLocaleString('es-CO')}`;
+    document.getElementById("saldo-financiar").textContent = `$${Math.round(saldoFinanciar).toLocaleString('es-CO')}`;
+    document.getElementById("pago-mensual").textContent = `$${Math.round(pagoMensual).toLocaleString('es-CO')}`;
 
     actualizarGrafico(cuotas, pagoMensual, saldoFinanciar);
 }
@@ -177,9 +177,9 @@ function actualizarGrafico(cuotas, pagoMensual, saldoFinanciar) {
         bar.className = "chart-bar";
         bar.style.height = `${barHeight}px`;
         bar.innerHTML = `
-            <div class="chart-bar-value">$${v.valor.toLocaleString('es-CO', {maximumFractionDigits: 0})}</div>
-            <div class="chart-bar-label">${v.mes}</div>
-        `;
+        <div class="chart-bar-value">$${Math.round(v.valor).toLocaleString('es-CO', {maximumFractionDigits: 0})}</div>
+        <div class="chart-bar-label">${v.mes}</div>
+    `;
         chart.appendChild(bar);
     });
 }
