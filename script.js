@@ -1,5 +1,20 @@
 let seleccionados = [];
 
+// Menú móvil
+document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('active');
+    this.querySelector('i').classList.toggle('fa-bars');
+    this.querySelector('i').classList.toggle('fa-times');
+});
+
+// Evento de búsqueda
+document.getElementById('busqueda').addEventListener('input', filtrarProductos);
+
+// Eventos de botones
+document.getElementById('calcularBtn').addEventListener('click', calcular);
+document.getElementById('resetearBtn').addEventListener('click', resetearCalculadora);
+document.getElementById('limpiarSeleccion').addEventListener('click', limpiarSeleccionados);
+
 function filtrarProductos() {
     const query = document.getElementById("busqueda").value.toLowerCase();
     const contenedor = document.getElementById("sugerencias");
