@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Royal Prestige</title>
+    <title>Calculadora Summit</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+    
     <div class="app-container">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <img src="img/logosimmit.png" alt="Logo Royal Prestige">
-                <h2>Calculadora Royal Prestige</h2>
+                <img src="img/logosimmit.png" alt="Logo Summit">
+                <h2>Calculadora Summit</h2>
             </div>
             <ul class="sidebar-menu">
                 <li><a href="#" class="active"><i class="fas fa-calculator"></i> Calculadora</a></li>
@@ -31,14 +35,14 @@
 
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="busqueda" class="search-box" placeholder="Buscar por nombre o código..." oninput="filtrarProductos()">
+                <input type="text" id="busqueda" class="search-box" placeholder="Buscar por nombre o código...">
                 <div id="sugerencias" class="suggestions-box"></div>
             </div>
 
             <div class="selected-products-container">
                 <div class="selected-header">
                     <h2>Productos seleccionados:</h2>
-                    <button class="clear-button" onclick="limpiarSeleccionados()">
+                    <button class="clear-button" id="limpiarSeleccion">
                         <i class="fas fa-trash-alt"></i> Limpiar todo
                     </button>
                 </div>
@@ -69,10 +73,10 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button class="btn btn-primary" onclick="calcular()">
+                    <button class="btn btn-primary" id="calcularBtn">
                         <i class="fas fa-calculator"></i> Calcular
                     </button>
-                    <button class="btn btn-reset" onclick="resetearCalculadora()">
+                    <button class="btn btn-secondary" id="resetearBtn">
                         <i class="fas fa-redo"></i> Resetear
                     </button>
                 </div>
@@ -81,7 +85,7 @@
             <div id="resultado" class="result-container">
                 <div class="result-header">
                     <h3><i class="fas fa-chart-bar"></i> Resultados de la simulación</h3>
-                    <button class="btn">
+                    <button class="btn btn-secondary">
                         <i class="fas fa-download"></i> Exportar
                     </button>
                 </div>
@@ -117,7 +121,6 @@
         </div>
     </div>
 
-    <script src="productos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
