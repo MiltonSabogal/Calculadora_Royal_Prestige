@@ -132,7 +132,14 @@ function calcular() {
     let deposito = parseFloat(document.getElementById("deposito").value || 0);
     let saldoFinanciar = Math.max(0, precioTotal - deposito);
     let tasaMV = parseFloat(document.getElementById("tasa_mv").value || 1.90) / 100;
-    let cuotas = parseInt(document.getElementById("cuotas").value || 18);
+    let cuotasInput = parseInt(document.getElementById("cuotas").value || 18);
+
+    let cuotas = Math.min(cuotasInput, 24);
+            if (cuotasInput > 24) {
+                alert("El número máximo de cuotas es 24.");
+                document.getElementById("cuotas").value = "24";
+            }
+            
 
     let pagoMensual = 0;
 
